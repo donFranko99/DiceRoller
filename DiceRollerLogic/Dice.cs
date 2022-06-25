@@ -1,4 +1,10 @@
-﻿namespace DiceRollerLogic
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DiceRollerLogic
 {
     public class Dice : IRoller
     {
@@ -42,7 +48,7 @@
 
         public override string ToString()
         {
-            return $"{Name} can roll values from 1 to {Range}";
+            return $" This {Name} can roll values from 1 to {Range}.\nIt has a {Pattern} pattern.";
         }
 
         /// <summary>
@@ -50,56 +56,56 @@
         /// </summary>
         /// <param name="pattern"> Description of visual pattern of the dice. </param>
         /// <returns> Dice object with range equal to 4. </returns>
-        public static Dice GetD4(string pattern = "default") => new Dice(4, "d4");
+        public static Dice GetD4(string pattern = "default") => new Dice(4, "d4", pattern);
 
         /// <summary>
         /// Returns a d6 dice with a certain pattern.
         /// </summary>
         /// <param name="pattern"> Description of visual pattern of the dice. </param>
         /// <returns> Dice object with range equal to 6. </returns>
-        public static Dice GetD6(string pattern = "default") => new Dice(6, "d6");
+        public static Dice GetD6(string pattern = "default") => new Dice(6, "d6", pattern);
 
         /// <summary>
         /// Returns a d8 dice with a certain pattern.
         /// </summary>
         /// <param name="pattern"> Description of visual pattern of the dice </param>
         /// <returns> Dice object with range equal to 8. </returns>
-        public static Dice GetD8(string pattern = "default") => new Dice(8, "d8");
+        public static Dice GetD8(string pattern = "default") => new Dice(8, "d8", pattern);
 
         /// <summary>
         /// Returns a d10 dice with a certain pattern.
         /// </summary>
         /// <param name="pattern"> Description of visual pattern of the dice </param>
         /// <returns> Dice object with range equal to 10. </returns>
-        public static Dice GetD10(string pattern = "default") => new Dice(10, "d10");
+        public static Dice GetD10(string pattern = "default") => new Dice(10, "d10", pattern);
 
         /// <summary>
         /// Returns a d12 dice with a certain pattern.
         /// </summary>
         /// <param name="pattern"> Description of visual pattern of the dice </param>
         /// <returns> Dice object with range equal to 12. </returns>
-        public static Dice GetD12(string pattern = "default") => new Dice(12, "d12");
+        public static Dice GetD12(string pattern = "default") => new Dice(12, "d12", pattern);
 
         /// <summary>
         /// Returns a d20 dice with a certain pattern.
         /// </summary>
         /// <param name="pattern"> Description of visual pattern of the dice </param>
         /// <returns> Dice object with range equal to 20. </returns>
-        public static Dice GetD20(string pattern = "default") => new Dice(20, "d20");
+        public static Dice GetD20(string pattern = "default") => new Dice(20, "d20", pattern);
 
         /// <summary>
         /// Returns a d100 dice with a certain pattern.
         /// </summary>
         /// <param name="pattern"> Description of visual pattern of the dice </param>
         /// <returns> Dice object with range equal to 100. </returns>
-        public static Dice GetD100(string pattern = "default") => new Dice(100, "d100");
+        public static Dice GetD100(string pattern = "default") => new Dice(100, "d100", pattern);
 
         /// <summary>
         /// Returns a d100 dice with a certain pattern.
         /// </summary>
         /// <param name="pattern"> Description of visual pattern of the dice </param>
         /// <returns> Dice object with range equal to 100. </returns>
-        public static List<Dice> GetBasicDiceSet(string pattern = "default")
+        public static List<Dice> GetDiceSet(string pattern = "default")
         {
             List<Dice> set = new List<Dice>();
             set.Add(GetD4(pattern));
